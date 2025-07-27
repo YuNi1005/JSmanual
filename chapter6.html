@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6. 配列の操作と再描画 - ToDoアプリ入門</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header>
+    <h1>6. 配列の操作と再描画</h1>
+    <nav>
+      <a href="chapter5.html">◀ 前へ</a>
+      <a href="chapter7.html" style="float:right">次へ ▶</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>この章の目的</h2>
+      <p>JavaScriptの配列を操作して、画面の表示を更新する方法を学びます。</p>
+    </section>
+
+    <section>
+      <h2>配列に要素を追加</h2>
+      <pre><code>taskGroups[groupName].tasks.push({
+  text: text,
+  done: false
+});</code></pre>
+      <p><code>push()</code> は配列の末尾に要素を追加します。</p>
+    </section>
+
+    <section>
+      <h2>配列から要素を削除</h2>
+      <pre><code>taskGroups[groupName].tasks = taskGroups[groupName].tasks.filter((t) => t !== task);</code></pre>
+      <p><code>filter()</code> を使うと、条件に合うものだけを残せます。</p>
+    </section>
+
+    <section>
+      <h2>再描画のためのDOM更新</h2>
+      <pre><code>ul.innerHTML = "";
+tasks.forEach((task) => {
+  renderTask(task, ul, groupName);
+});</code></pre>
+      <p><code>innerHTML = ""</code> でいったんリセットしてから <code>forEach()</code> で描画し直します。</p>
+    </section>
+
+    <section>
+      <h2>ToDoアプリでの流れ</h2>
+      <ol>
+        <li>配列にタスクを追加・削除</li>
+        <li>HTMLを更新（再描画）</li>
+        <li>進捗バーなどのUIを更新</li>
+      </ol>
+    </section>
+
+    <nav>
+      <a href="chapter5.html">◀ 前へ</a>
+      <a href="chapter7.html" style="float:right">次へ ▶</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p>© 2025 JavaScript入門サイト</p>
+  </footer>
+</body>
+</html>

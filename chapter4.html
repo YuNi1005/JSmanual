@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. イベント処理 - ToDoアプリ入門</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header>
+    <h1>4. イベント処理</h1>
+    <nav>
+      <a href="chapter3.html">◀ 前へ</a>
+      <a href="chapter5.html" style="float:right">次へ ▶</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>この章の目的</h2>
+      <p>JavaScriptでユーザーの操作（クリックや入力など）に反応する方法を学びます。</p>
+    </section>
+
+    <section>
+      <h2>イベントリスナーの登録</h2>
+      <p><code>addEventListener</code> を使ってイベントを設定します。</p>
+      <pre><code>const button = document.querySelector("#add-button");
+button.addEventListener("click", () => {
+  alert("ボタンがクリックされました");
+});</code></pre>
+    </section>
+
+    <section>
+      <h2>イベントの種類</h2>
+      <ul>
+        <li><code>click</code>（クリック）</li>
+        <li><code>input</code>（文字入力）</li>
+        <li><code>submit</code>（フォーム送信）</li>
+        <li><code>change</code>（値の変更）</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>ToDoアプリでの実践例</h2>
+      <p>タスク追加ボタンに <code>click</code> イベントを設定しています。</p>
+      <pre><code>addButton.addEventListener("click", () => {
+  const text = taskInput.value.trim();
+  if (text !== "") {
+    addTask(text);
+    taskInput.value = "";
+  }
+});</code></pre>
+
+      <p>チェックボックスにもイベントが設定されています。</p>
+      <pre><code>checkbox.addEventListener("change", () => {
+  task.done = checkbox.checked;
+  updateProgress(groupName);
+  saveTasks();
+});</code></pre>
+    </section>
+
+    <nav>
+      <a href="chapter3.html">◀ 前へ</a>
+      <a href="chapter5.html" style="float:right">次へ ▶</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p>© 2025 JavaScript入門サイト</p>
+  </footer>
+</body>
+</html>

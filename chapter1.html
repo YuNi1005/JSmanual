@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. 変数とデータの扱い - ToDoアプリ入門</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header>
+    <h1>1. 変数とデータの扱い</h1>
+    <nav>
+      <a href="index.html">◀ 目次に戻る</a>
+      <a href="chapter2.html" style="float:right">次へ ▶</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>この章の目的</h2>
+      <p>JavaScriptにおける変数、配列、オブジェクトの使い方を理解し、ToDoアプリでどのようにデータを扱っているかを学びます。</p>
+    </section>
+
+    <section>
+      <h2>変数の定義</h2>
+      <p><code>let</code> と <code>const</code> の違いを理解しましょう。</p>
+      <pre><code>let taskCount = 0;       // 後から変更可能
+const appTitle = "ToDoアプリ"; // 変更不可（定数）</code></pre>
+    </section>
+
+    <section>
+      <h2>配列の使い方</h2>
+      <p>タスクを複数まとめて管理したい場合に使います。</p>
+      <pre><code>const tasks = [
+  { text: "買い物", done: false },
+  { text: "掃除", done: true }
+];</code></pre>
+      <p><code>tasks[0].text</code> で「買い物」が取り出せます。</p>
+    </section>
+
+    <section>
+      <h2>オブジェクトの使い方</h2>
+      <p>タスクグループのように名前付きで情報を管理したいときに便利です。</p>
+      <pre><code>const taskGroup = {
+  desc: "今日のタスク",
+  tasks: [
+    { text: "宿題", done: false }
+  ]
+};</code></pre>
+    </section>
+
+    <section>
+      <h2>ToDoアプリでの実践例</h2>
+      <p>実際のアプリでは、次のようにデータを全体で管理しています。</p>
+      <pre><code>let taskGroups = {
+  "仕事": {
+    desc: "会社でやること",
+    tasks: [
+      { text: "会議の準備", done: false }
+    ]
+  },
+  "プライベート": {
+    desc: "個人の用事",
+    tasks: []
+  }
+};</code></pre>
+    </section>
+
+    <section>
+      <h2>ローカルストレージとの関係</h2>
+      <p>変数に格納したデータは、<code>localStorage</code> で保存・復元されます。</p>
+      <pre><code>// 保存
+localStorage.setItem("taskGroups", JSON.stringify(taskGroups));
+
+// 読み込み
+const saved = localStorage.getItem("taskGroups");
+if (saved) {
+  taskGroups = JSON.parse(saved);
+}</code></pre>
+    </section>
+
+    <nav>
+      <a href="index.html">◀ 目次に戻る</a>
+      <a href="chapter2.html" style="float:right">次へ ▶</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p>© 2025 JavaScript入門サイト</p>
+  </footer>
+</body>
+</html>
