@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. 関数と処理の構造化 - ToDoアプリ入門</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header>
+    <h1>2. 関数と処理の構造化</h1>
+    <nav>
+      <a href="chapter1.html">◀ 前へ</a>
+      <a href="chapter3.html" style="float:right">次へ ▶</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>この章の目的</h2>
+      <p>関数を使って処理をまとめる方法と、ToDoアプリにおける関数設計の実例を学びます。</p>
+    </section>
+
+    <section>
+      <h2>関数の定義</h2>
+      <p><strong>通常関数:</strong></p>
+      <pre><code>function greet(name) {
+  return "こんにちは、" + name + "さん！";
+}</code></pre>
+
+      <p><strong>アロー関数:</strong></p>
+      <pre><code>const greet = (name) => "こんにちは、" + name + "さん！";</code></pre>
+    </section>
+
+    <section>
+      <h2>関数で処理を整理するメリット</h2>
+      <ul>
+        <li>コードの再利用がしやすくなる</li>
+        <li>意味ごとに処理を分けて読みやすくなる</li>
+        <li>バグの特定や修正が簡単になる</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>ToDoアプリでの実践例</h2>
+      <p>タスクを画面に表示する処理は <code>renderTask()</code> 関数にまとめられています。</p>
+      <pre><code>function renderTask(task, ul, groupName) {
+  const li = document.createElement("li");
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.checked = task.done;
+
+  const span = document.createElement("span");
+  span.textContent = task.text;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "削除";
+
+  li.appendChild(checkbox);
+  li.appendChild(span);
+  li.appendChild(deleteBtn);
+
+  ul.appendChild(li);
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>その他の関数の例</h2>
+      <p><code>renderGroup()</code>, <code>updateProgress()</code>, <code>openPopup()</code> なども役割ごとに定義されています。</p>
+      <pre><code>function openPopup() {
+  Popup.style.display = "flex";
+  document.body.classList.add("modal-open");
+}</code></pre>
+    </section>
+
+    <nav>
+      <a href="chapter1.html">◀ 前へ</a>
+      <a href="chapter3.html" style="float:right">次へ ▶</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p>© 2025 JavaScript入門サイト</p>
+  </footer>
+</body>
+</html>

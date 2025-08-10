@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. クラスとスタイルの切り替え - ToDoアプリ入門</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header>
+    <h1>5. クラスとスタイルの切り替え</h1>
+    <nav>
+      <a href="chapter4.html">◀ 前へ</a>
+      <a href="chapter6.html" style="float:right">次へ ▶</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>この章の目的</h2>
+      <p>JavaScriptでHTML要素の見た目（CSS）を変更する方法を学びます。</p>
+    </section>
+
+    <section>
+      <h2>クラスの追加・削除</h2>
+      <p><code>classList</code> を使って、CSSクラスを操作できます。</p>
+      <pre><code>element.classList.add("done");
+element.classList.remove("done");
+element.classList.toggle("active");</code></pre>
+    </section>
+
+    <section>
+      <h2>ToDoアプリでの実践例</h2>
+      <p>タスクが完了したときに、テキストに取り消し線を追加します。</p>
+      <pre><code>if (task.done) {
+  span.classList.add("done");
+} else {
+  span.classList.remove("done");
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>スタイルの直接変更</h2>
+      <p>styleプロパティを使えば、直接CSSを設定できます。</p>
+      <pre><code>element.style.color = "red";
+element.style.backgroundColor = "#f0f0f0";</code></pre>
+      <p>ただし、クラスでの制御が推奨されます。</p>
+    </section>
+
+    <nav>
+      <a href="chapter4.html">◀ 前へ</a>
+      <a href="chapter6.html" style="float:right">次へ ▶</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p>© 2025 JavaScript入門サイト</p>
+  </footer>
+</body>
+</html>

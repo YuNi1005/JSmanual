@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDoアプリ</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/todo.js" defer></script>  <!-- defer付き -->
+</head>
+<body>
+  <header>
+    <h1>ToDoアプリ</h1>
+    <nav>
+      <a href="index.html">◀ JavaScript解説に戻る</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ポップアップ -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <form id="task-group-form">
+          <input type="text" id="task-group-input" placeholder="タスクグループ名を入力..." required>
+          <input type="text" id="task-group-desc" placeholder="説明を入力...（任意）">
+          <button type="submit">追加</button>
+          <button type="button" onclick="closePopup()">閉じる</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- タスクグループ一覧 -->
+    <section>
+      <h2>タスクグループ一覧</h2>
+      <button onclick="openPopup()">新規グループの追加</button>
+      <div id="task-groups-container">
+        <!-- タスクグループがここに追加されます -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 ToDoアプリ</p>
+  </footer>
+
+  <script src="js/todo.js"></script>
+</body>
+</html>

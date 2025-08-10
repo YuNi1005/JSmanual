@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7. ローカルストレージによる保存 - ToDoアプリ入門</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header>
+    <h1>7. ローカルストレージによる保存</h1>
+    <nav>
+      <a href="chapter6.html">◀ 前へ</a>
+      <a href="todo.html" style="float:right">ToDoアプリ ▶</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>この章の目的</h2>
+      <p>ページをリロードしてもデータを保持できる「ローカルストレージ」の仕組みを学びます。</p>
+    </section>
+
+    <section>
+      <h2>ローカルストレージとは？</h2>
+      <p>ブラウザにデータを保存して、次回アクセス時に読み込むことができる機能です。</p>
+    </section>
+
+    <section>
+      <h2>保存と読み込みの基本</h2>
+      <p><strong>保存:</strong></p>
+      <pre><code>localStorage.setItem("key", JSON.stringify(data));</code></pre>
+
+      <p><strong>読み込み:</strong></p>
+      <pre><code>const saved = localStorage.getItem("key");
+if (saved) {
+  const data = JSON.parse(saved);
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>ToDoアプリでの実践例</h2>
+      <p><strong>保存時（タスクの追加・削除・更新）:</strong></p>
+      <pre><code>function saveTasks() {
+  localStorage.setItem("taskGroups", JSON.stringify(taskGroups));
+}</code></pre>
+
+      <p><strong>読み込み時（ページ初期化）:</strong></p>
+      <pre><code>function loadTasks() {
+  const saved = localStorage.getItem("taskGroups");
+  if (saved) {
+    taskGroups = JSON.parse(saved);
+    for (const groupName in taskGroups) {
+      renderGroup(groupName);
+      updateProgress(groupName);
+    }
+  }
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>注意点と活用例</h2>
+      <ul>
+        <li>保存できるのは文字列のみ → JSONで変換</li>
+        <li>容量制限がある（5MB前後）</li>
+        <li>ユーザーのブラウザ内にだけ保存される</li>
+      </ul>
+    </section>
+
+    <nav>
+      <a href="chapter6.html">◀ 前へ</a>
+      <a href="todo.html" class="app-link">▶ アプリを試す</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p>© 2025 JavaScript入門サイト</p>
+  </footer>
+</body>
+</html>

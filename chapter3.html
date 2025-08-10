@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. DOMの取得と生成 - ToDoアプリ入門</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header>
+    <h1>3. DOMの取得と生成</h1>
+    <nav>
+      <a href="chapter2.html">◀ 前へ</a>
+      <a href="chapter4.html" style="float:right">次へ ▶</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>この章の目的</h2>
+      <p>JavaScriptでHTML要素（DOM）を操作する方法と、ToDoアプリでの活用例を学びます。</p>
+    </section>
+
+    <section>
+      <h2>DOMの取得</h2>
+      <p><code>document.querySelector()</code> や <code>getElementById()</code> を使って要素を取得します。</p>
+      <pre><code>const addButton = document.querySelector("#add-button");
+const input = document.getElementById("task-input");</code></pre>
+    </section>
+
+    <section>
+      <h2>要素の作成と追加</h2>
+      <p><code>createElement</code> と <code>appendChild</code> を使って新しい要素を作ります。</p>
+      <pre><code>const li = document.createElement("li");
+li.textContent = "新しいタスク";
+ul.appendChild(li);</code></pre>
+    </section>
+
+    <section>
+      <h2>HTMLとJavaScriptの関係図</h2>
+      <img src="images/dom_binding.png" alt="HTMLとJavaScriptの連携図" style="max-width:100%; border:1px solid #ccc; border-radius:6px;">
+      <p>HTMLの要素とJavaScriptのコードが、どのように対応・連携しているかを図で示しています。</p>
+    </section>
+
+
+    <section>
+      <h2>属性の設定</h2>
+      <p>HTML要素に属性を追加するには <code>setAttribute</code> を使います。</p>
+      <pre><code>input.setAttribute("placeholder", "タスクを入力");</code></pre>
+    </section>
+
+    <section>
+      <h2>ToDoアプリでの実践例</h2>
+      <p>実際にアプリでは、タスクのDOMをすべてJavaScriptで構築しています。</p>
+      <pre><code>const checkbox = document.createElement("input");
+checkbox.type = "checkbox";
+checkbox.checked = task.done;
+
+const span = document.createElement("span");
+span.textContent = task.text;
+
+const li = document.createElement("li");
+li.appendChild(checkbox);
+li.appendChild(span);
+ul.appendChild(li);</code></pre>
+    </section>
+
+    <nav>
+      <a href="chapter2.html">◀ 前へ</a>
+      <a href="chapter4.html" style="float:right">次へ ▶</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p>© 2025 JavaScript入門サイト</p>
+  </footer>
+</body>
+</html>
